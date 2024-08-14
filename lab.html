@@ -3,97 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกม XO</title>
+    <title>Premier League Table</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f2f2f2;
             margin: 0;
-            background-color: #f7f7f7;
+            padding: 0;
         }
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 5px;
+        header {
+            background-color: #0a74da;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-        .cell {
-            width: 100px;
-            height: 100px;
-            background-color: #ffffff;
-            border: 2px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
+        nav {
+            background-color: #333;
+            overflow: hidden;
         }
-        .winner {
-            margin-top: 20px;
-            font-size: 24px;
-            color: green;
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        section {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0a74da;
+            color: white;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <div>
-        <div class="board" id="board">
-            <div class="cell" data-index="0"></div>
-            <div class="cell" data-index="1"></div>
-            <div class="cell" data-index="2"></div>
-            <div class="cell" data-index="3"></div>
-            <div class="cell" data-index="4"></div>
-            <div class="cell" data-index="5"></div>
-            <div class="cell" data-index="6"></div>
-            <div class="cell" data-index="7"></div>
-            <div class="cell" data-index="8"></div>
-        </div>
-        <div class="winner" id="winner"></div>
-    </div>
 
-    <script>
-        const board = document.getElementById('board');
-        const winnerDisplay = document.getElementById('winner');
-        let currentPlayer = 'X';
-        let gameState = ["", "", "", "", "", "", "", "", ""];
-        const winningConditions = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ];
+<header>
+    <h1>Premier League Table</h1>
+    <p>Updated Premier League standings</p>
+</header>
 
-        board.addEventListener('click', function(e) {
-            const index = e.target.getAttribute('data-index');
+<nav>
+    <a href="#home">Home</a>
+    <a href="#table">League Table</a>
+    <a href="#fixtures">Fixtures</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-            if (gameState[index] === "" && winnerDisplay.innerText === "") {
-                gameState[index] = currentPlayer;
-                e.target.innerText = currentPlayer;
+<section id="table">
+    <h2>Current Premier League Standings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Team</th>
+                <th>Played</th>
+                <th>Won</th>
+                <th>Drawn</th>
+                <th>Lost</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Manchester City</td>
+                <td>38</td>
+                <td>29</td>
+                <td>6</td>
+                <td>3</td>
+                <td>95</td>
+                <td>32</td>
+                <td>+63</td>
+                <td>93</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Liverpool</td>
+                <td>38</td>
+                <td>28</td>
+                <td>8</td>
+                <td>2</td>
+                <td>89</td>
+                <td>26</td>
+                <td>+63</td>
+                <td>92</td>
+            </tr>
+            <!-- เพิ่มแถวข้อมูลเพิ่มเติมตามต้องการ -->
+        </tbody>
+    </table>
+</section>
 
-                if (checkWinner()) {
-                    winnerDisplay.innerText = `ผู้ชนะคือ ${currentPlayer}!`;
-                } else {
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                }
-            }
-        });
+<footer>
+    <p>&copy; 2024 Premier League Table. All rights reserved.</p>
+</footer>
 
-        function checkWinner() {
-            for (let i = 0; i < winningConditions.length; i++) {
-                const [a, b, c] = winningConditions[i];
-                if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    </script>
 </body>
 </html>
