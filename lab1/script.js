@@ -1,4 +1,4 @@
-// ข้อมูลผู้ใช้ที่เก็บไว้ในตัวแปร (username: admin, password: 1234)
+// ข้อมูลผู้ใช้ที่เก็บไว้ในตัวแปร (username: numpwa10, password: 1234)
 const validUsername = "numpwa10";
 const validPassword = "1234";
 
