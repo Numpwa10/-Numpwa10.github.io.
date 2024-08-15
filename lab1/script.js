@@ -14,6 +14,6 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         document.getElementById("message").style.color = "red";
         document.getElementById("message").textContent = "เข้าสู่ระบบสำเร็จ!";
     } else {
-        document.getElementById("message").textContent = "Invalid username or password";
+        document.getElementById("message").textContent = "ใส่ผิดอีกครั้งโดนตบ";
     }
 });
