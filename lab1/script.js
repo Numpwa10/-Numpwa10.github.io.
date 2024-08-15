@@ -11,7 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     // เปรียบเทียบกับข้อมูลที่เก็บไว้ในตัวแปร
     if (username === validUsername && password === validPassword) {
-        document.getElementById("message").style.color = "green";
+        document.getElementById("message").style.color = "red";
         document.getElementById("message").textContent = "เข้าสู่ระบบสำเร็จ!";
     } else {
         document.getElementById("message").textContent = "Invalid username or password";
