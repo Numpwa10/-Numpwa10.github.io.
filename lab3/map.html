@@ -61,7 +61,12 @@
         }).addTo(map);
         
         var marker = L.marker([15.66839942655514, 100.1370606227435]).addTo(map);
-
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
          //add standard controls
             L.control.coordinates().addTo(map);
   //add configured controls
